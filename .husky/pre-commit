@@ -1,9 +1,9 @@
 echo "🦆 Running pre-commit hooks..."
 
 echo "🦩 Running linters..."
-npm run format:fix
-npm run stylelint:fix
-npm run lint:fix
+
+npm run stylelint
+npm run lint
 
 # echo "🪿 Running tests..."
 # npm run test:ci

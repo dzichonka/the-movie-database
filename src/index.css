@@ -44,6 +44,7 @@
     filter: invert(1) brightness(2);
   }
 }
+
 h1,
 h2,
 h3,
@@ -63,6 +64,7 @@ p {
   flex-direction: column;
   box-sizing: border-box;
 }
+
 .container {
   margin: 0 auto;
   display: flex;
@@ -71,13 +73,14 @@ p {
   gap: 1rem;
   flex: 1;
 }
+
 .wrapper {
   display: flex;
-  flex-direction: raw;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   gap: 1rem;
   justify-content: center;
 }
+
 .card {
   display: flex;
   flex-direction: column;
