@@ -1,0 +1,19 @@
+import { Component } from 'react';
+import Card from '../Card/Card';
+import type { Movie } from '../../types/api-types';
+
+type ResultProps = { data: Movie[] };
+class Result extends Component<ResultProps> {
+  render() {
+    return (
+      <div>
+        {this.props.data.map((movie) => (
+          <div key={movie.id}>
+            <Card data={movie} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+export default Result;

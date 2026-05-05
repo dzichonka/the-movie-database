@@ -10,17 +10,17 @@
   --border: #17272b;
   --shadow: #071a1caf;
 
-  font: 18px/145% var(--sans);
+  font: 18px / 145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--primary);
   background: var(--background);
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
+  @media (width <= 1024px) {
     font-size: 16px;
   }
 }
@@ -33,11 +33,11 @@
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --accent-bg: rgb(192 132 252 / 15%);
+    --accent-border: rgb(192 132 252 / 50%);
+    --social-bg: rgb(47 48 58 / 50%);
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgb(0 0 0 / 40%) 0 10px 15px -3px, rgb(0 0 0 / 25%) 0 4px 6px -2px;
   }
 
   #social .button-icon {
