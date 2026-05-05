@@ -6,7 +6,7 @@ type ResultProps = { data: Movie[] };
 class Result extends Component<ResultProps> {
   render() {
     return (
-      <div>
+      <div className="wrapper">
         {this.props.data.map((movie) => (
           <div key={movie.id}>
             <Card data={movie} />

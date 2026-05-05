@@ -18,11 +18,6 @@ class ApiService {
     return (await res.json()) as T;
   };
 
-  public getMovie = async (): Promise<Response> => {
-    const url = this._apiBase;
-    return this.getResource<Response>(url);
-  };
-
   public getAllMovies = async (
     page: number = 1,
     queryText: string = ''
