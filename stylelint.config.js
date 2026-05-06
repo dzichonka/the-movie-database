@@ -7,5 +7,10 @@ export default {
     'no-descending-specificity': null,
     'no-empty-source': null,
   },
-  ignoreFiles: ['dist/**/*', 'node_modules/**/*', '.vite/**/*'],
+  ignoreFiles: [
+    'dist/**/*',
+    'node_modules/**/*',
+    '.vite/**/*',
+    'coverage/**/*',
+  ],
 };
