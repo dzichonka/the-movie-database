@@ -5,8 +5,8 @@ type ErrorPageProps = {
 };
 export const ErrorPage = ({ onRefresh }: ErrorPageProps) => (
   <>
-    <div>
-      <h1>error boundary caught an error</h1>
+    <div className="container">
+      <h1>Error boundary caught an error</h1>
       <RefreshButton onClick={onRefresh} />
     </div>
   </>

@@ -17,6 +17,7 @@ class ErrorButton extends Component<ErrorButtonProps> {
 
     return (
       <button
+        className="btn"
         onClick={() => {
           this.setState({ shouldThrow: true });
         }}

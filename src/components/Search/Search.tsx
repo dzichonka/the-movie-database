@@ -15,6 +15,12 @@ class Search extends Component<SearchProps> {
 
   handleSearch = (event: React.SubmitEvent): void => {
     event?.preventDefault();
+    if (
+      !this.state.search.trim() ||
+      this.state.search.trim() === localStorage.getItem('lastSearch')
+    ) {
+      return;
+    }
     localStorage.setItem('lastSearch', this.state.search.trim());
     this.props.onSearch(this.state.search.trim());
   };
@@ -23,6 +29,7 @@ class Search extends Component<SearchProps> {
       <form onSubmit={this.handleSearch}>
         <label className="label" htmlFor="search">
           <input
+            className="input"
             type="text"
             id="search"
             value={this.state.search}
