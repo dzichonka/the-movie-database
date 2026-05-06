@@ -26,7 +26,7 @@ class Search extends Component<SearchProps> {
   };
   render() {
     return (
-      <form onSubmit={this.handleSearch}>
+      <form onSubmit={this.handleSearch} className="form">
         <label className="label" htmlFor="search">
           <input
             className="input"

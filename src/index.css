@@ -105,6 +105,11 @@ p {
   color: var(--primary);
 }
 
+.form {
+  display: flex;
+  align-items: center;
+}
+
 .input {
   background: var(--background);
   color: var(--primary);

@@ -21,13 +21,7 @@ class MainPage extends Component {
   async componentDidMount() {
     const lastSearch = localStorage.getItem('lastSearch') || '';
     this.setState({ loading: true, error: null });
-    try {
-      await this.handleSearch(lastSearch);
-    } catch {
-      this.setState({ error: 'Failed to fetch characters' });
-    } finally {
-      this.setState({ loading: false });
-    }
+    await this.handleSearch(lastSearch);
   }
 
   handleSearch = async (search: string): Promise<void> => {
@@ -39,7 +33,7 @@ class MainPage extends Component {
       );
       this.setState({ data: response.results });
     } catch {
-      this.setState({ error: 'Failed to fetch characters' });
+      this.setState({ error: 'Failed to fetch movies, please try again' });
     } finally {
       this.setState({ loading: false });
     }
