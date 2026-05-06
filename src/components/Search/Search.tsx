@@ -13,7 +13,7 @@ class Search extends Component<SearchProps> {
     search: localStorage.getItem('lastSearch') || '',
   };
 
-  handleSearch = (event: React.FormEvent): void => {
+  handleSearch = (event: React.SubmitEvent): void => {
     event?.preventDefault();
     localStorage.setItem('lastSearch', this.state.search.trim());
     this.props.onSearch(this.state.search.trim());

@@ -5,7 +5,7 @@ type CardProps = { data: Movie };
 
 class Card extends Component<CardProps> {
   render() {
-    const { title, release_date, poster_path, popularity } = this.props.data;
+    const { title, release_date, poster_path, overview } = this.props.data;
     return (
       <div className="card">
         <img
@@ -16,10 +16,11 @@ class Card extends Component<CardProps> {
           }
           alt={title}
           width="200"
+          height="300"
         />
         <h2>{title}</h2>
-        <p>Release Date: {release_date}</p>
-        <p>Popularity: {popularity}</p>
+        <p>{release_date.slice(0, 4)}</p>
+        <p>{overview}</p>
       </div>
     );
   }

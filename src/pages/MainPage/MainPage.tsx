@@ -50,7 +50,6 @@ class MainPage extends Component {
       <>
         <div className="container">
           <Search onSearch={this.handleSearch} />
-          {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
           {this.state.loading && <Loader />}
           {this.state.error && !this.state.loading && (
             <h2>{this.state.error}</h2>
