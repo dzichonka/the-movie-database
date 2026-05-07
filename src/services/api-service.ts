@@ -26,9 +26,10 @@ class ApiService {
       query: queryText,
       page: page.toString(),
     });
-    const url = queryText
-      ? `${this._apiBase}?${query.toString()}`
-      : this._apiPopular;
+    const url =
+      queryText || queryText === ''
+        ? `${this._apiBase}?${query.toString()}`
+        : this._apiPopular;
     return this.getResource<Response>(url);
   };
 }
