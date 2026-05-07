@@ -1,7 +1,7 @@
 import type { Response } from '../types/api-types';
 
 class ApiService {
-  private _apiBase = 'https://api.themoviedb.org/3/search/movie';
+  private _apiSerch = 'https://api.themoviedb.org/3/search/movie';
   private _apiPopular = 'https://api.themoviedb.org/3/movie/popular';
 
   private getResource = async <T>(url: string): Promise<T> => {
@@ -26,10 +26,9 @@ class ApiService {
       query: queryText,
       page: page.toString(),
     });
-    const url =
-      queryText || queryText === ''
-        ? `${this._apiBase}?${query.toString()}`
-        : this._apiPopular;
+    const url = queryText
+      ? `${this._apiSerch}?${query.toString()}`
+      : this._apiPopular;
     return this.getResource<Response>(url);
   };
 }
