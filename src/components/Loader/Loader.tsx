@@ -4,7 +4,7 @@ import s from './Loader.module.scss';
 const Loader = (): ReactElement => {
   const NUMBER_OF_DOTS = 12;
   return (
-    <div>
+    <div role="loader">
       <div className={s.lds}>
         {Array.from({ length: NUMBER_OF_DOTS }).map((_, index) => (
           <div key={index}></div>
