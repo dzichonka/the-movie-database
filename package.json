@@ -14,7 +14,7 @@
     "format:fix": "prettier --write .",
     "prepare": "husky .husky",
     "test": "vitest run",
-    "test:watch": "vitest",
+    "test:watch": "vitest --coverage",
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
