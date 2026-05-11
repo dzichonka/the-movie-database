@@ -29,7 +29,7 @@ class MainPage extends Component {
     try {
       const response = await apiService.getAllMovies(
         1,
-        search.trim() ? search : undefined
+        search.trim() ? search : ''
       );
       this.setState({ data: response.results });
     } catch {

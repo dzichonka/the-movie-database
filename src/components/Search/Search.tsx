@@ -15,14 +15,15 @@ class Search extends Component<SearchProps> {
 
   handleSearch = (event: React.SubmitEvent): void => {
     event?.preventDefault();
-    if (
-      !this.state.search.trim() ||
-      this.state.search.trim() === localStorage.getItem('lastSearch')
-    ) {
+
+    const trimmedSearch = this.state.search.trim();
+
+    if (trimmedSearch === localStorage.getItem('lastSearch')) {
       return;
     }
-    localStorage.setItem('lastSearch', this.state.search.trim());
-    this.props.onSearch(this.state.search.trim());
+
+    localStorage.setItem('lastSearch', trimmedSearch);
+    this.props.onSearch(trimmedSearch);
   };
   render() {
     return (
