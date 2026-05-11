@@ -42,7 +42,7 @@ class MainPage extends Component {
   render() {
     return (
       <>
-        <div className="container">
+        <div className="container" data-testid="main-page">
           <Search onSearch={this.handleSearch} />
           {this.state.loading && <Loader />}
           {this.state.error && !this.state.loading && (
