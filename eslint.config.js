@@ -28,5 +28,8 @@ export default defineConfig([
         version: 'detect',
       },
     },
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
   },
 ]);

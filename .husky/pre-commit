@@ -1,9 +1,15 @@
 echo "🌼 Running pre-commit hooks..."
 
-echo "🍀 Running linters..."
+echo "🍀 Running lint..."
 
-npm run stylelint
+npm run lint:fix
 npm run lint
+
+echo "🍁 Running stylelint..."
+
+npm run stylelint:fix
+npm run stylelint
+
 
 echo "🌻 Running tests..."
 npm run test
