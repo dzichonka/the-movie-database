@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsr generate && vite build",
+    "typecheck": "tsc -b",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "stylelint": "stylelint '**/*.{css,scss}'",
@@ -28,6 +29,7 @@
     "@eslint/js": "^9.39.4",
     "@tanstack/react-router": "^1.170.4",
     "@tanstack/react-router-devtools": "^1.167.0",
+    "@tanstack/router-cli": "^1.167.5",
     "@tanstack/router-plugin": "^1.168.6",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
