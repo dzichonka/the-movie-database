@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import { useState } from 'react';
 
 type SearchProps = {
   onSearch: (search: string) => void;
@@ -7,21 +8,14 @@ type SearchProps = {
 const Search = (props: SearchProps) => {
   const { onSearch } = props;
 
-  const [search, setSearch] = useState(
-    localStorage.getItem('lastSearch') || ''
-  );
+  const [LS, setLS] = useLocalStorage<string>('lastSearch', '');
+  const [search, setSearch] = useState(LS || '');
 
-  const handleSearch = (event: React.SubmitEvent): void => {
+  const handleSearch = (event: React.SubmitEvent<HTMLFormElement>): void => {
     event?.preventDefault();
-
-    const trimmedSearch = search.trim();
-
-    if (trimmedSearch === localStorage.getItem('lastSearch')) {
-      return;
-    }
-
-    localStorage.setItem('lastSearch', trimmedSearch);
-    onSearch(trimmedSearch);
+    if (LS === search.trim()) return;
+    setLS(search.trim());
+    onSearch(search.trim());
   };
 
   return (

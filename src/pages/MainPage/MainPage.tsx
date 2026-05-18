@@ -5,6 +5,7 @@ import Search from '../../components/Search/Search';
 import ErrorButton from '../../components/ErrorButton/ErrorButton';
 import Loader from '../../components/Loader/Loader';
 import Result from '../../components/Results/Result';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 type MainPageState = {
   data: Movie[] | null;
@@ -17,9 +18,7 @@ const MainPage = () => {
     loading: false,
     error: null,
   });
-  const [lastSearch] = useState<string>(
-    localStorage.getItem('lastSearch') || ''
-  );
+  const [lastSearch] = useLocalStorage('lastSearch', '');
 
   const handleSearch = async (search: string): Promise<void> => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
