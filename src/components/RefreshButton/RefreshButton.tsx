@@ -2,7 +2,8 @@ type RefreshButtonProps = {
   onClick?: () => void;
 };
 
-const RefreshButton = ({ onClick }: RefreshButtonProps) => {
+const RefreshButton = (props: RefreshButtonProps) => {
+  const { onClick } = props;
   const handleClick = () => {
     if (onClick) {
       onClick();

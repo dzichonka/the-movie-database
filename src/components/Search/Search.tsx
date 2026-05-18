@@ -4,7 +4,9 @@ import { BsSearch } from 'react-icons/bs';
 type SearchProps = {
   onSearch: (search: string) => void;
 };
-const Search = ({ onSearch }: SearchProps) => {
+const Search = (props: SearchProps) => {
+  const { onSearch } = props;
+
   const [search, setSearch] = useState(
     localStorage.getItem('lastSearch') || ''
   );

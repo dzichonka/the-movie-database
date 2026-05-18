@@ -2,7 +2,8 @@ import type { Movie } from '../../types/api-types';
 
 type CardProps = { data: Movie };
 
-const Card = ({ data }: CardProps) => {
+const Card = (props: CardProps) => {
+  const { data } = props;
   const { title, release_date, poster_path, overview } = data;
   return (
     <div className="card">

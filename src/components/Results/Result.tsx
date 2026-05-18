@@ -3,18 +3,19 @@ import type { Movie } from '../../types/api-types';
 
 type ResultProps = { data: Movie[] };
 
-const Result = ({ data }: ResultProps) => {
+const Result = (props: ResultProps) => {
+  const { data } = props;
 
-    return (
-      <div className="wrapper">
-        {data.length === 0 && <h2>nothing founds</h2>}
-        {data.length > 0 &&
-          data.map((movie) => (
-            <div key={movie.id}>
-              <Card data={movie} />
-            </div>
-          ))}
-      </div>
-    );
-}
+  return (
+    <div className="wrapper">
+      {data.length === 0 && <h2>nothing founds</h2>}
+      {data.length > 0 &&
+        data.map((movie) => (
+          <div key={movie.id}>
+            <Card data={movie} />
+          </div>
+        ))}
+    </div>
+  );
+};
 export default Result;
