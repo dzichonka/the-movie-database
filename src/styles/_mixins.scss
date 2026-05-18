@@ -1,0 +1,88 @@
+@mixin flex(
+  $direction: row,
+  $align: center,
+  $justify: center,
+  $wrap: nowrap,
+  $gap: 1rem
+) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin btn(
+  $color: var(--bg-base),
+  $border: var(--bg-base),
+  $bg: var(--text-main),
+  $bg-hover: var(--text-sub),
+  $padding: 0.5rem 1rem
+) {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  padding: $padding;
+  border: 1px solid $border;
+  border-radius: 3rem;
+  color: $color;
+  background-color: $bg;
+  outline: none;
+  transform: scale(1);
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover {
+      background-color: $bg-hover;
+      transform: scale(1.05);
+    }
+  }
+
+  @media (width <= 750px) {
+    padding: 1rem 2rem;
+  }
+}
+
+@mixin link(
+  $color: var(--text-main),
+  $bg: transparent,
+  $hover: var(--text-bright)
+) {
+  font-weight: 600;
+  padding: 0.5rem;
+  border: none;
+  color: $color;
+  background-color: $bg;
+  outline: none;
+  text-decoration: none;
+  transform: scale(1);
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover {
+      color: $hover;
+      transform: scale(1.05);
+    }
+  }
+
+  @media (width <= 750px) {
+    padding: 0.25rem;
+  }
+}

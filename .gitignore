@@ -25,3 +25,7 @@ dist-ssr
 
 .env
 .vite
+coverage
+
+*.gen.ts
+.tanstank

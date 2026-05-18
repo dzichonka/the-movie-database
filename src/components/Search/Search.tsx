@@ -1,47 +1,38 @@
-import { Component } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import { useState } from 'react';
 
 type SearchProps = {
   onSearch: (search: string) => void;
 };
-type SearchState = {
-  search: string;
-};
+const Search = (props: SearchProps) => {
+  const { onSearch } = props;
 
-class Search extends Component<SearchProps> {
-  state: SearchState = {
-    search: localStorage.getItem('lastSearch') || '',
-  };
+  const [LS, setLS] = useLocalStorage<string>('lastSearch', '');
+  const [search, setSearch] = useState(LS || '');
 
-  handleSearch = (event: React.SubmitEvent): void => {
+  const handleSearch = (event: React.SubmitEvent<HTMLFormElement>): void => {
     event?.preventDefault();
-
-    const trimmedSearch = this.state.search.trim();
-
-    if (trimmedSearch === localStorage.getItem('lastSearch')) {
-      return;
-    }
-
-    localStorage.setItem('lastSearch', trimmedSearch);
-    this.props.onSearch(trimmedSearch);
+    if (LS === search.trim()) return;
+    setLS(search.trim());
+    onSearch(search.trim());
   };
-  render() {
-    return (
-      <form onSubmit={this.handleSearch} className="form">
-        <label className="label" htmlFor="search">
-          <input
-            className="input"
-            type="text"
-            id="search"
-            value={this.state.search}
-            onChange={(event) => this.setState({ search: event.target.value })}
-          />
-        </label>
-        <button className="btn-icon" type="submit">
-          <BsSearch />
-        </button>
-      </form>
-    );
-  }
-}
+
+  return (
+    <form onSubmit={handleSearch} className="form">
+      <label className="label" htmlFor="search">
+        <input
+          className="input"
+          type="text"
+          id="search"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+      </label>
+      <button className="btn-icon" type="submit">
+        <BsSearch />
+      </button>
+    </form>
+  );
+};
 export default Search;

@@ -1,5 +1,5 @@
 import { Component, type ReactNode } from 'react';
-import { ErrorPage } from '../../pages/ErrorPage/ErrorPage';
+import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 
 type ErrorBoundaryProps = { children: ReactNode };
 type ErrorBoundaryState = { hasError: boolean };
