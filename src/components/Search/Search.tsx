@@ -1,47 +1,42 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 
 type SearchProps = {
   onSearch: (search: string) => void;
 };
-type SearchState = {
-  search: string;
-};
+const Search = ({ onSearch }: SearchProps) => {
+  const [search, setSearch] = useState(
+    localStorage.getItem('lastSearch') || ''
+  );
 
-class Search extends Component<SearchProps> {
-  state: SearchState = {
-    search: localStorage.getItem('lastSearch') || '',
-  };
-
-  handleSearch = (event: React.SubmitEvent): void => {
+  const handleSearch = (event: React.SubmitEvent): void => {
     event?.preventDefault();
 
-    const trimmedSearch = this.state.search.trim();
+    const trimmedSearch = search.trim();
 
     if (trimmedSearch === localStorage.getItem('lastSearch')) {
       return;
     }
 
     localStorage.setItem('lastSearch', trimmedSearch);
-    this.props.onSearch(trimmedSearch);
+    onSearch(trimmedSearch);
   };
-  render() {
-    return (
-      <form onSubmit={this.handleSearch} className="form">
-        <label className="label" htmlFor="search">
-          <input
-            className="input"
-            type="text"
-            id="search"
-            value={this.state.search}
-            onChange={(event) => this.setState({ search: event.target.value })}
-          />
-        </label>
-        <button className="btn-icon" type="submit">
-          <BsSearch />
-        </button>
-      </form>
-    );
-  }
-}
+
+  return (
+    <form onSubmit={handleSearch} className="form">
+      <label className="label" htmlFor="search">
+        <input
+          className="input"
+          type="text"
+          id="search"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+      </label>
+      <button className="btn-icon" type="submit">
+        <BsSearch />
+      </button>
+    </form>
+  );
+};
 export default Search;

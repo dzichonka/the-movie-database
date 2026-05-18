@@ -1,5 +1,5 @@
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import { ErrorPage } from './ErrorPage';
+import ErrorPage from './ErrorPage';
 import { describe, expect, test, vi, afterAll } from 'vitest';
 import '@testing-library/jest-dom';
 

@@ -3,7 +3,7 @@ import RefreshButton from '../../components/RefreshButton/RefreshButton';
 type ErrorPageProps = {
   onRefresh: () => void;
 };
-export const ErrorPage = ({ onRefresh }: ErrorPageProps) => (
+const ErrorPage = ({ onRefresh }: ErrorPageProps) => (
   <>
     <div className="container">
       <h1>Error boundary caught an error</h1>
@@ -11,3 +11,4 @@ export const ErrorPage = ({ onRefresh }: ErrorPageProps) => (
     </div>
   </>
 );
+export default ErrorPage;
